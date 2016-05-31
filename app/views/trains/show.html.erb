@@ -5,6 +5,43 @@
   <%= @train.number %>
 </p>
 
+
+  <% if @train.wagons.present? %>
+    <% ca = @train.wagons.select { |wagon| wagon.wagon_type == 'compartment' } %>
+    <% ra = @train.wagons.select { |wagon| wagon.wagon_type == 'reserved' } %>
+    <p>
+      <strong>Количество купейных вагонов:</strong>
+      <%= ca.size %>
+    </p>
+    <p>
+      <strong>Количество плацкартных вагонов:</strong>
+      <%= ra.size %>
+    </p>
+
+    <p>
+      <strong>Количество купейных верхних мест:</strong>
+      <%= ca.map { |wagon| wagon.upper_seats}.reduce(0, :+) %>
+    </p>
+
+    <p>
+      <strong>Количество купейных нижних мест:</strong>
+      <%= ca.map { |wagon| wagon.lower_seats}.reduce(0, :+) %>
+    </p>
+
+    <p>
+      <strong>Количество плацкартных верхних мест:</strong>
+      <%= ra.map { |wagon| wagon.upper_seats}.reduce(0, :+) %>
+    </p>
+
+    <p>
+      <strong>Количество плацкартных нижних мест:</strong>
+      <%= ra.map { |wagon| wagon.lower_seats}.reduce(0, :+) %>
+    </p>
+
+   <% else %>
+      <p>Вагоны не прицеплены</p>
+   <% end %>
+
 <p>
 <strong>Маршрут:</strong>
 <% if @train.route.present? %>
