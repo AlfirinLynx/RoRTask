@@ -2,15 +2,48 @@
 
 <h1>Список вагонов</h1>
 
-<h3>Плацкартные</h3>
 
-<%= render @wagons.select { |wagon| wagon.wagon_type == 'reserved' } %>
+<table>
+  <thead>
+    
+    <tr>
+      <th>Плацкартные</th>
+      <th colspan="3"></th>
+    </tr>
+    <tr>
+      <th>Номер</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <%= render Wagon.reserved_wagons %>
+
+  </tbody>
+</table>
  
 <br>
 
-<h3>Купейные</h3>
+<table>
+  <thead>
+    
+    <tr>
+      <th>Купейные</th>
+      <th colspan="3"></th>
+    </tr>
+    <tr>
+      <th>Номер</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= render @wagons.select { |wagon| wagon.wagon_type == 'compartment' } %>
+  <tbody>
+    
+    <%= render Wagon.compartment_wagons %>
+
+  </tbody>
+</table>
 
 <br>
 
