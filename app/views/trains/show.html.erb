@@ -5,6 +5,40 @@
   <%= @train.number %>
 </p>
 
+
+  <% if @train.wagons.present? %>
+    <p>
+      <strong>Количество купейных вагонов:</strong>
+      <%= @train.compartment_number %>
+    </p>
+    <p>
+      <strong>Количество плацкартных вагонов:</strong>
+      <%= @train.reserved_number %>
+    </p>
+
+    <p>
+      <strong>Количество купейных верхних мест:</strong>
+      <%=  @train.compartment_upper_seats %>
+
+    <p>
+      <strong>Количество купейных нижних мест:</strong>
+      <%= @train.compartment_lower_seats %>
+    </p>
+
+    <p>
+      <strong>Количество плацкартных верхних мест:</strong>
+      <%= @train.reserved_upper_seats %>
+    </p>
+
+    <p>
+      <strong>Количество плацкартных нижних мест:</strong>
+      <%= @train.reserved_lower_seats %>
+    </p>
+
+   <% else %>
+      <p>Вагоны не прицеплены</p>
+   <% end %>
+
 <p>
 <strong>Маршрут:</strong>
 <% if @train.route.present? %>

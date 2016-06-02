@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  wagon_type: MyString
+  lower_seats: MyString
+  integer: MyString
+  upper_seats: MyString
+  integer: MyString
+
+two:
+  number: MyString
+  wagon_type: MyString
+  lower_seats: MyString
+  integer: MyString
+  upper_seats: MyString
+  integer: MyString
